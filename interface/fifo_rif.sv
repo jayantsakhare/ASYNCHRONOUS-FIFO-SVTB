@@ -5,7 +5,7 @@ interface fifo_rif #(parameter DSIZE=8) (input logic rclk);
     logic rempty;
 
     clocking RD @(posedge rclk);
-       default input #1ps output #1ps;
+       default input #1ns output #1ns;
         input rdata;
         output rinc;
         output rrst_n;

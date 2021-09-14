@@ -1,21 +1,20 @@
-program base_test (fifo_wif.WR_MP wif,fifo_rif.RD_MP rif);
+class base_test;
     
     fifo_env env;
-
+    virtual fifo_wif.WR_MP wif;
+    virtual fifo_rif.RD_MP rif;
     write_read_seq seq;
 
-    task start();
-        run();
-        env.start();
-    endtask
-
-    function void run();
+    function new (virtual fifo_wif.WR_MP wif,virtual fifo_rif.RD_MP rif);
+        this.wif=wif;
+        this.rif=rif;        
         env=new(wif,rif);
         seq=new();
         env.get_seq(seq);
     endfunction
 
-    initial begin
-        start();
-    end
-endprogram
+    task start();
+        env.start();
+    endtask
+
+endclass

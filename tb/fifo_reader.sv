@@ -15,7 +15,7 @@ class fifo_reader #(parameter DSIZE=8);
         txn=new();
         wait(!rif.RD.rempty)
         begin
-            //@(rif.RD);
+            @(rif.RD);
             rif.RD.rinc<=1'b1;
             txn.data<=rif.RD.rdata;
             @(rif.RD);

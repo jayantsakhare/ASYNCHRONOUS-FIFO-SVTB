@@ -16,6 +16,7 @@ class fifo_writer;
         txn=new();
         txn.randomize();
         txn.display("writer");
+        @(wif.WR);
         wif.WR.winc<=1'b1;
         wif.WR.wdata<=txn.data;
         wrt2sb.put(txn);

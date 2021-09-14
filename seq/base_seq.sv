@@ -14,6 +14,7 @@ class base_seq;
             this.writer.reset();
             this.reader.reset();
         join
+        @(reader.rif.RD)
     endtask
 
    task write();
