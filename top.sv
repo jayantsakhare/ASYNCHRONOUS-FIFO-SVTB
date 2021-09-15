@@ -43,8 +43,8 @@ module top();
             );
 
     //testcase instance
-    //base_test TEST(fifo_wif.WR_MP, fifo_rif.RD_MP);
     base_test test;
+
 
     //FSDB Dump
     initial begin
