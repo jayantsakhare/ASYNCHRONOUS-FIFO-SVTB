@@ -3,10 +3,10 @@ class fifo_sb;
     fifo_mbox wrt2sb;
     fifo_mbox rdr2sb;
 
-    fifo_tran r_txn;
-    fifo_tran w_txn;
+    fifo_tran r_txn,r_txn_temp;
+    fifo_tran w_txn,w_txn_temp;
 
-    //ques to store read and write received transactions
+    //queues to store read and write received transactions
     fifo_tran wr_q[$];
     fifo_tran rd_q[$]; 
 
@@ -17,13 +17,15 @@ class fifo_sb;
 
     task sb_read();
         r_txn=new();
-        rdr2sb.get(r_txn);
+        rdr2sb.get(r_txn_temp);
+		r_txn.data=r_txn_temp.data;
         rd_q.push_back(r_txn);
     endtask
 
     task sb_write();
         w_txn=new();
-        wrt2sb.get(w_txn);
+        wrt2sb.get(w_txn_temp);
+		w_txn.data=w_txn_temp.data;
         wr_q.push_back(w_txn);
     endtask
 

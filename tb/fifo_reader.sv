@@ -22,9 +22,9 @@ class fifo_reader #(parameter DSIZE=8);
             txn.display("reader"); 
             rdr2sb.put(txn);
             sb.sb_read();
-            $info("READER::READ END");
         end
         rif.RD.rinc<=1'b0;
+        $info("READER::READ END");
     endtask
 
     task reset();
