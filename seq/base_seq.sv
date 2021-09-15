@@ -14,14 +14,15 @@ class base_seq;
             this.writer.reset();
             this.reader.reset();
         join
+            @(reader.rif.RD);
     endtask
 
-   task write();
-    this.writer.write();
+   task write(int n);
+    this.writer.write(n);
    endtask
 
-   task read();
-    this.reader.read();
+   task read(int n);
+    this.reader.read(n);
    endtask
 
    virtual task body();

@@ -4,8 +4,8 @@ logic winc;
 logic wrst_n;
 logic wfull;
 
-clocking WR @(posedge wclk);
-    default input #1ps output #1ps;
+clocking WR @(negedge wclk);
+    default input #1ns output #1ns;
     output wdata;
     output winc, wrst_n;
     input wfull;

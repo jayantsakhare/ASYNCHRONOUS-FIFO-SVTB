@@ -7,8 +7,14 @@ class write_read_seq extends base_seq;
     virtual task body();
         super.body();
         $info("WR_RD_SEQ:BODY BEGIN");
-        this.write();
-        read();
+        fork
+            begin
+                write(3);
+            end
+            begin
+                read(3);
+            end
+        join
         $info("WR_RD_SEQ:BODY END");
     endtask
 

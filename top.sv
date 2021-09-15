@@ -13,13 +13,13 @@ module top();
     //read clock
     initial begin
         forever begin
-            #5 rclk_top=~rclk_top;
+            #50 rclk_top=~rclk_top;
         end
     end
     //write clock
     initial begin
         forever begin
-            #3 wclk_top=~wclk_top;
+            #30 wclk_top=~wclk_top;
         end
     end
 
@@ -43,8 +43,8 @@ module top();
             );
 
     //testcase instance
-    base_test TEST(fifo_wif.WR_MP, fifo_rif.RD_MP);
-
+    //base_test TEST(fifo_wif.WR_MP, fifo_rif.RD_MP);
+    base_test test;
 
     //FSDB Dump
     initial begin
@@ -53,7 +53,14 @@ module top();
     end
 
     initial begin
-        #100;
+        test=new(fifo_wif.WR_MP, fifo_rif.RD_MP);
+        fork
+            begin
+                test.start();
+                #50;
+            end
+            #2000;
+        join_any
         $finish;
     end
 

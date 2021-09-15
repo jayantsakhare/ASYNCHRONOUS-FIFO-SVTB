@@ -10,21 +10,21 @@ class fifo_reader #(parameter DSIZE=8);
         this.sb=sb;
     endfunction
 
-    task read();
+    task read(int n);
         $info("READER::READ BEGIN");
         txn=new();
-        wait(!rif.RD.rempty)
+		repeat(n)
         begin
-            //@(rif.RD);
+			@(negedge rif.rclk iff (rif.RD.rempty==1'b0))
             rif.RD.rinc<=1'b1;
-            txn.data<=rif.RD.rdata;
             @(rif.RD);
-            rif.RD.rinc<=1'b0;
+            txn.data=rif.RD.rdata;
             txn.display("reader"); 
             rdr2sb.put(txn);
             sb.sb_read();
             $info("READER::READ END");
         end
+        rif.RD.rinc<=1'b0;
     endtask
 
     task reset();

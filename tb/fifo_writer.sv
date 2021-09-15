@@ -10,20 +10,23 @@ class fifo_writer;
         this.sb=sb;
     endfunction
 
-    task write();
+    task write(int n);
         fifo_tran txn;
-        $display("FIFO_WRITER:WRITE BEGIN");
+        $display("%t FIFO_WRITER:WRITE BEGIN %d",$realtime,n);
         txn=new();
+		@(wif.WR);
+        wif.WR.winc<=1'b1;
+		repeat(n)
+		begin
         txn.randomize();
         txn.display("writer");
-        wif.WR.winc<=1'b1;
         wif.WR.wdata<=txn.data;
+			@(wif.WR);
         wrt2sb.put(txn);
         sb.sb_write();
-        @(wif.WR);
+		end
         wif.WR.winc<=1'b0;
-        wif.WR.wdata<=7'b0;
-        $display("FIFO_WRITER:WRITE END");
+        $display("%t FIFO_WRITER:WRITE END",$realtime);
     endtask
 
     task reset();
