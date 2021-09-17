@@ -1,3 +1,8 @@
+//fifo environment class
+
+`ifndef GUARD_ENV
+`define GUARD_ENV
+
 class fifo_env;
 
     fifo_reader rdr;
@@ -25,15 +30,18 @@ class fifo_env;
         
     endfunction
 
+    //gets the sequence handle from test
     function void get_seq(base_seq seq);
         this.seq=seq;
         this.seq.writer=this.wrtr;
         this.seq.reader=this.rdr;
     endfunction
 
+    //starts the sequence body
     task start();
         seq.body();
         sb.compare();
     endtask
 
 endclass
+`endif 

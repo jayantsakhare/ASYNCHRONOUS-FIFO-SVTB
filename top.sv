@@ -1,3 +1,12 @@
+//top file includes
+//  1. FIFO DUT instance
+//  2. Clock generation
+//  3. test class instance
+//  4. Interface instances  
+
+`ifndef GUARD_TOP
+`define GUARD_TOP
+
 import fifo_pkg::*;
 
 `include "fifo_wif.sv"
@@ -65,3 +74,4 @@ module top();
     end
 
 endmodule
+`endif GUARD_TOP

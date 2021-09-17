@@ -1,3 +1,9 @@
+//reset during write seq
+    //resets paralley with write operation
+
+`ifndef GUARD_RST_WRITE
+`define GUARD_RST_WRITE
+
 class reset_during_write_seq extends base_seq;
 
     function new (fifo_writer writer, fifo_reader reader);
@@ -16,3 +22,4 @@ class reset_during_write_seq extends base_seq;
     endtask
 
 endclass
+`endif

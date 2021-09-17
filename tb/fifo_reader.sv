@@ -1,3 +1,8 @@
+//fifo reader agent class
+
+`ifndef GUARD_READER
+`define GUARD_READER
+
 class fifo_reader #(parameter DSIZE=8);
 
     virtual fifo_rif.RD_MP rif;
@@ -10,6 +15,7 @@ class fifo_reader #(parameter DSIZE=8);
         this.sb=sb;
     endfunction
 
+    //reads n transactions from the DUT.
     task read(int n);
         $info("READER::READ BEGIN");
         txn=new();
@@ -27,6 +33,7 @@ class fifo_reader #(parameter DSIZE=8);
         $info("READER::READ END");
     endtask
 
+    //resets the read side
     task reset();
         $info("READER::RESET BEGIN");
         @(rif.RD);
@@ -37,3 +44,4 @@ class fifo_reader #(parameter DSIZE=8);
     endtask
 
 endclass
+`endif 

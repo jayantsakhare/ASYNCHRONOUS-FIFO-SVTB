@@ -1,3 +1,9 @@
+//write read sequence 
+    //perform 3 reads and 3 writes
+
+`ifndef GUARD_WR_RD_SEQ
+`define GUARD_WR_RD_SEQ 
+
 class write_read_seq extends base_seq;
 
     function new (fifo_writer writer=null, fifo_reader reader=null);
@@ -19,3 +25,4 @@ class write_read_seq extends base_seq;
     endtask
 
 endclass
+`endif

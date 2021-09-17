@@ -1,3 +1,8 @@
+//fifo writer agent class 
+
+`ifndef GUARD_WRITER
+`define GUARD_WRITER
+
 class fifo_writer;
 
     virtual fifo_wif.WR_MP wif;
@@ -10,6 +15,7 @@ class fifo_writer;
         this.sb=sb;
     endfunction
 
+    //writes n transactions to DUT
     task write(int n);
         fifo_tran txn;
         $display("%t FIFO_WRITER:WRITE BEGIN %d",$realtime,n);
@@ -29,6 +35,7 @@ class fifo_writer;
         $display("%t FIFO_WRITER:WRITE END",$realtime);
     endtask
 
+    //resets the write side
     task reset();
         $display("FIFO_WRITER:RESET BEGIN");
         @(wif.WR);
@@ -39,3 +46,4 @@ class fifo_writer;
     endtask
 
 endclass
+`endif

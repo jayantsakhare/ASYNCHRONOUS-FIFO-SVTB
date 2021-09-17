@@ -1,3 +1,9 @@
+// write till full sequence
+    //write 8 times and read one time to see full toggle
+
+`ifndef GUARD_WR_FULL_SEQ
+`define GUARD_WR_FULL_SEQ
+
 class write_full_seq extends base_seq;
 
     function new (fifo_writer writer, fifo_reader reader);
@@ -14,3 +20,4 @@ class write_full_seq extends base_seq;
     endtask
 
 endclass
+`endif

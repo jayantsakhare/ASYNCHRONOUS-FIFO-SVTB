@@ -1,3 +1,8 @@
+//FIFO write interface
+
+`ifndef GUARD_WIF
+`define GUARD_WIF 
+
 interface fifo_wif #(parameter DSIZE=8) (input logic wclk);
 logic [DSIZE-1:0] wdata;
 logic winc;
@@ -14,3 +19,4 @@ endclocking
 modport WR_MP (clocking WR,input wclk);
 
 endinterface // fifo_wif
+`endif 

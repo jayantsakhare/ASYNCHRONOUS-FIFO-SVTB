@@ -1,3 +1,8 @@
+//FIFO read interface
+
+`ifndef GUARD_RIF
+`define GUARD_RIF
+
 interface fifo_rif #(parameter DSIZE=8) (input logic rclk);
     logic rinc;
     logic rrst_n;
@@ -15,3 +20,4 @@ interface fifo_rif #(parameter DSIZE=8) (input logic rclk);
     modport RD_MP(clocking RD, input rclk);
 
 endinterface
+`endif

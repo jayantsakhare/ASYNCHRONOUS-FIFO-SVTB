@@ -1,3 +1,8 @@
+//reset during read sequence
+
+`ifndef GUARD_RST_READ
+`define GUARD_RST_READ
+
 class reset_during_read_seq extends base_seq;
 
     function new (fifo_writer writer, fifo_reader reader);
@@ -16,3 +21,4 @@ class reset_during_read_seq extends base_seq;
     endtask
 
 endclass
+`endif

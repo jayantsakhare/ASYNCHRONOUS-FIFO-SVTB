@@ -1,3 +1,8 @@
+//perform read and write operation simultaneously
+
+`ifndef GUARD_WR_RD_TOGETHER
+`define GUARD_WR_RD_TOGETHER
+
 class read_write_together_seq extends base_seq;
 
     function new (fifo_writer writer, fifo_reader reader);
@@ -16,3 +21,4 @@ class read_write_together_seq extends base_seq;
     endtask
 
 endclass
+`endif

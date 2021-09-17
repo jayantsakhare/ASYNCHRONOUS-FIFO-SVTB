@@ -1,9 +1,14 @@
+// base test class 
+
+`ifndef GUARD_BASE_TEST
+`define GUARD_BASE_TEST
+
 class base_test;
     
     fifo_env env;
     virtual fifo_wif.WR_MP wif;
     virtual fifo_rif.RD_MP rif;
-    write_read_seq seq;
+    base_seq seq;
 
     function new (virtual fifo_wif.WR_MP wif,virtual fifo_rif.RD_MP rif);
         this.wif=wif;
@@ -18,3 +23,4 @@ class base_test;
     endtask
 
 endclass
+`endif

@@ -1,3 +1,9 @@
+//reset in between sequence
+    //resets FIFO between reads & writes
+
+`ifndef GUARD_RST_IN_BETWN
+`define GUARD_RST_IN_BETWN
+
 class reset_in_between_seq extends base_seq;
 
     function new (fifo_writer writer, fifo_reader reader);
@@ -16,3 +22,4 @@ class reset_in_between_seq extends base_seq;
     endtask
 
 endclass
+`endif
