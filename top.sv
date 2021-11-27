@@ -74,4 +74,4 @@ module top();
     end
 
 endmodule
-`endif GUARD_TOP
+`endif 

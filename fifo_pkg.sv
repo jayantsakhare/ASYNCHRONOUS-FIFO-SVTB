@@ -7,4 +7,5 @@ package fifo_pkg;
     `include "base_seq.sv"
     `include "fifo_env.sv"
     `include "write_read_seq.sv"
+    `include "reset_in_between_seq"
 endpackage
