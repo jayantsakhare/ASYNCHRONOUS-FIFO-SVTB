@@ -11,7 +11,7 @@ import fifo_pkg::*;
 
 `include "fifo_wif.sv"
 `include "fifo_rif.sv"
-`include "base_test.sv"
+`include "reset_in_between_test.sv"
 module top();
 
     bit rclk_top;
@@ -52,7 +52,7 @@ module top();
             );
 
     //testcase instance
-    base_test test;
+    reset_in_between_test test;
 
 
     //FSDB Dump

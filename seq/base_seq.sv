@@ -24,12 +24,12 @@ class base_seq;
     endtask
 
     //calls writer write
-   task write(int n);
+   task write(int n=1);
     this.writer.write(n);
    endtask
 
    //calls reader read
-   task read(int n);
+   task read(int n=1);
     this.reader.read(n);
    endtask
 

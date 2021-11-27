@@ -6,7 +6,7 @@
 
 class reset_in_between_seq extends base_seq;
 
-    function new (fifo_writer writer, fifo_reader reader);
+    function new (fifo_writer writer=null, fifo_reader reader=null);
         super.new(writer, reader);
     endfunction
 
